@@ -12,7 +12,6 @@ void surprised(){
     delay(300);
     tone(buzzerPin, 1400, 80);
     noTone(buzzerPin); //noTone = no tone (obvious, right?)
-    delay(1000); //delay in ms
 }
 
 void happy(){
@@ -20,7 +19,6 @@ void happy(){
         tone(buzzerPin, 600, 60);
         delay(300);
     }
-    delay(1000);
     
 
     noTone(buzzerPin);  
@@ -29,8 +27,9 @@ void happy(){
 void sad(){
     tone(buzzerPin, 700, 100);
     for(int j = 0; j < 3; j++){
-        for(int i = 695; i < 600; i -= 5){
+        for(int i = 695; i > 600; i -= 5){
             tone(buzzerPin, i, 20);
+            delay(20);
         } 
     }
     noTone(buzzerPin);
