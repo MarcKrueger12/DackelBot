@@ -9,6 +9,9 @@ void setupEcho(){
 }
 
 double getDistance() {
+    double arr[10];
+
+    for(int i = 0; i < 10; i++){
     //Measurement (10 ms pulse)
     digitalWrite(trigPin, LOW);
     delayMicroseconds(2);
@@ -19,6 +22,14 @@ double getDistance() {
     //Calculation of distance
     long time = pulseIn(echoPin, HIGH, 30000); // Timeout nach 30ms (~5m)
     double distance = time * 0.034 / 2.0; //0.034 is speed of sound in cm/ms
+    
+    arr[i] = distance
+    }
+    double sum = 0;
+    for(int i = 0; i < 10;i++){
+        sum += arr[i];
+    }
 
-    return distance;
+    double distance_mean = sum / 10;
+    return distance_mean;
 }
